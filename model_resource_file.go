@@ -16,5 +16,5 @@ type ResourceFile struct {
 	// Unix-timestamp of when the resource was updated
 	Updated int64 `json:"updated,omitempty"`
 	// Raw bytes: the actual file
-	File string `json:"file"`
+	File []byte `json:"file"`
 }

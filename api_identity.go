@@ -10,7 +10,6 @@ package passbase
 
 import (
 	"context"
-	"encoding/base64"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -302,8 +301,7 @@ func (a *IdentityApiService) GetIdentityResourceFileById(ctx context.Context, id
 	}
 
 	if localVarHttpResponse.StatusCode < 300 {
-		sEnc := base64.StdEncoding.EncodeToString(localVarBody)
-		return ResourceFile{Id: id, File: sEnc}, localVarHttpResponse, nil
+		return ResourceFile{Id: id, File: localVarBody}, localVarHttpResponse, nil
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
